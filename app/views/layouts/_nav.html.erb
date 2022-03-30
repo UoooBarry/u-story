@@ -2,7 +2,7 @@
   <div class="flex flex-col container mx-auto md:flex-row md:items-center md:justify-between">
       <div class="flex justify-between items-center">
           <div>
-              <a class="text-gray-800 text-xl font-bold md:text-2xl" href="#">U <span class="text-blue-500">Blog</span></a>
+              <a class="text-gray-800 text-xl font-bold md:text-2xl" href="/">U <span class="text-blue-500">Story</span></a>
           </div>
           <div>
               <button type="button" @click="isOpen = !isOpen" class="block text-gray-800 hover:text-gray-600 focus:text-gray-600 focus:outline-none md:hidden">
@@ -16,6 +16,10 @@
           <a class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0" href="/">Home</a>
           <a class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0" href="/">Blog</a>
           <a class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0" href="#">About us</a>
+          <% if verified? %>
+            <%= link_to 'New category', new_category_path, class: 'my-1 text-gray-800 hover:text-red-500 md:mx-4 md:my-0' %>
+            <%= link_to 'New Article', new_article_path, class: 'my-1 text-gray-800 hover:text-red-500 md:mx-4 md:my-0' %>
+          <% end %>
       </div>
   </div>
 </nav>

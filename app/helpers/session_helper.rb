@@ -11,7 +11,7 @@ module SessionHelper
     }
   end
 
-  def verifed?
+  def verified?
     session[:door_key].present? && session[:door_key] == cookies[:door_key]
   end
 end
