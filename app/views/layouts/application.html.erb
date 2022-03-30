@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>UStory</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="font-roboto bg-gray-100">
+      <%= render 'layouts/nav' %>
+      <main class="px-6 py-8">
+        <div class="flex justify-between container mx-auto">
+          <div class="w-full lg:w-8/12">
+            <%= yield %>
+          </div>
+          <div class="-mx-8 w-4/12 hidden lg:block">
+            <div class="mt-10 px-8">
+              <h1 class="mb-4 text-xl font-bold text-gray-700">Categories</h1>
+                <%= render 'layouts/categories' %>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
