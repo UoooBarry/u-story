@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :categories
   add_flash_types :info, :error, :warning
 
-  before_action :turbo_frame_request_variant
+  before_action :turbo_frame_request_variant, :apply_cookie_key!
 
   def categories
     @categories ||= Category.all
