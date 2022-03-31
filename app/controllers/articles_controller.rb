@@ -1,3 +1,5 @@
+require 'redcarpet/compat'
+
 class ArticlesController < ApplicationController
   def new
     @article = Article.new
@@ -7,7 +9,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
-      flash[:green] = 'Article was successfully created.'
+      flash[:blue] = 'Article was successfully created.'
       redirect_to @article
     else
       flash[:red] = 'Article was not created.'

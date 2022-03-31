@@ -1,20 +1,11 @@
 <div class="flex items-center justify-between">
   <h1 class="text-xl font-bold text-gray-700 md:text-2xl">Post</h1>
 </div>
+
 <div class="mt-6">
-  <% @articles.each do |article| %>
-    <div class="max-w-4xl px-10 py-6 bg-white rounded-lg shadow-md mb-6">
-      <div class="flex justify-between items-center">
-        <span class="font-light text-gray-600"><%= article.updated_at.strftime('%Y-%m-%d') %></span>
-        <%= link_to article.category.name, article.category, class: 'px-2 py-1 bg-gray-600 text-gray-100 font-bold rounded hover:bg-gray-500' %>
-      </div>
-      <div class="mt-2">
-        <a class="text-2xl text-gray-700 font-bold hover:underline" href="articles/<%= article.id %>"><%= article.title %></a>
-        <p class="mt-2 text-gray-600"><%= article.content.first(350) %>...</p>
-      </div>
-      <div class="flex justify-between items-center mt-4">
-        <%= link_to 'Read more', article, class: 'text-blue-500 hover:underline' %>
-      </div>
-    </div>
-  <% end %>
+  <%= turbo_frame_tag "page_handler", autoscroll: "true" %>
+  <div id="articles">
+    <%= render @articles %>
+  </div>
+  <%= render "pager", pagy: @pagy %>
 </div>

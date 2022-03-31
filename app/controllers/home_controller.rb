@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @articles = Article.all.includes(:category)
+    @pagy, @articles = pagy(Article.all.includes(:category).order(created_at: :desc), items: 5)
   end
 end

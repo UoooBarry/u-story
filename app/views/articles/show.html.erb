@@ -11,8 +11,8 @@
         <br>
 
 			  <!--Post Content-->
-        <div>
-          <%= @article.content %>
+        <div class="post-content">
+          <%= raw markdown.render @article.content %>
         </div>
 
 			</div>
