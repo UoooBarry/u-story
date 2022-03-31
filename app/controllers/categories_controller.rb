@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find_by(id: params[:id])
-    @articles = @category.articles.includes(:category)
+    @pagy, @articles = pagy(@category.articles.includes(:category).order(created_at: :desc), items: 5)
 
     render 'home/index'
   end
