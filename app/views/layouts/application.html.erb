@@ -10,7 +10,8 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <link rel="stylesheet", href="/assets/custom/highlight/github-dark.min">
+    <%= stylesheet_link_tag "github-dark.min" %>
+    <%= javascript_include_tag "highlight.min" %>
     <%= javascript_importmap_tags %>
   </head>
 
@@ -36,7 +37,6 @@
         </div>
       </main>
     </div>
-    <script src="/assets/custom/highlight.min.js"></script>
     <script>
       hljs.highlightAll();
     </script>
