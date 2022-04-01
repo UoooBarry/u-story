@@ -4,16 +4,51 @@
   <div class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal" style="font-family:Georgia,serif;">
     <!--Title-->
     <div class="font-sans">
-      <p class="text-base md:text-sm text-blue-500 font-bold">&lt; <a href="/" class="text-base md:text-sm text-blue-500 font-bold no-underline hover:underline">BACK TO BLOG</a></p>
-      <h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl"><%= @article.title %></h1>
-      <br>
-      <p class="text-sm md:text-base font-normal text-gray-600">Published <%= @article.created_at.strftime('%Y-%m-%d') %></p>
-      <br>
+      <div id="show-block">
+        <p class="text-base md:text-sm text-blue-500 font-bold">&lt; <a href="/" class="text-base md:text-sm text-blue-500 font-bold no-underline hover:underline">BACK TO BLOG</a></p>
+        <h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl"><%= @article.title %></h1>
+        <br>
+        <p class="inline  text-sm md:text-base font-normal text-gray-600">Published <%= @article.created_at.strftime('%Y-%m-%d') %></p>
+        <% if verified? %>
+          <span class="inline text-sm md:text-base font-normal text-blue-600 cursor-pointer" id="edit">edit</span>
+        <% end %>
+        <br>
+        <!--Post Content-->
+        <div class="post-content prose" id="article-content">
+          <%= raw markdown.render @article.content %>
+        </div>
+      </div>
+      <div style="display:none" id="edit-block">
+        <%= form_with model: @article, method: 'put', class:  "", data: { turbo: false } do |f| %>
+          <div class="mb-4">
+            <%= f.label :title, 'Title', class: 'block text-gray-700 text-sm font-bold mb-2' %>
+            <%= f.text_field :title, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+          </div>
 
-      <!--Post Content-->
-      <div class="post-content prose" id="article-content">
-        <%= raw markdown.render @article.content %>
+          <div class="mb-4">
+            <%= f.label :title, 'Category', class: 'block text-gray-700 text-sm font-bold mb-2' %>
+            <%= f.select :category_id, Category.all.map {|c| [c.name, c.id]}, {} ,class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+          </div>
+
+          <div class="mb-4">
+            <%= f.label :content, 'Body', class: 'block text-gray-700 text-sm font-bold mb-2' %>
+            <%= f.text_area :content, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', rows: '30' %>
+          </div>
+          
+          <div class="flex items-center justify-between">
+            <%= f.submit 'Submit', class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer" %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
+
+
+<script>
+document.querySelector('#edit').addEventListener('click', () => {
+  console.log('edit')
+  document.querySelector('#edit-block').style.display = 'block'
+  document.querySelector('#show-block').style.display = 'none'
+})
+</script>
