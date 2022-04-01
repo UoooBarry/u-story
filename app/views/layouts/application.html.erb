@@ -17,7 +17,7 @@
 
   <body class="font-roboto bg-gray-100">
     <% flash.each do |color, msg| %>
-      <div class="text-base bg-<%= color %>-100 text-<%= color %>-700 px-4 py-3 rounded relative" role="alert">
+      <div class="text-<%= color %>-700 bg-<%= color %>-100 text-sm flex p-3 lg" role="alert">
         <%= msg %>
       </div>
     <% end %>
