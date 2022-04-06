@@ -50,5 +50,5 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV["PRODUCTION_DATABASE_URL"] %>
+  username: root
   database: u_story_production
