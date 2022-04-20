@@ -3,6 +3,6 @@ class SessionController < ApplicationController
   def show
     raise ActionController::RoutingError, 'Session not found' unless verify!(params[:id])
 
-    redirect_to root_path
+    redirect_back fallback_location: root_path, allow_other_host: true
   end
 end
