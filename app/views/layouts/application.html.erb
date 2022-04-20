@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>UStory</title>
+    <title><%= t('u_story') %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -30,7 +30,7 @@
           </div>
           <div class="-mx-8 w-4/12 hidden lg:block">
             <div class="mt-10 px-8">
-              <h1 class="mb-4 text-xl font-bold text-gray-700">Categories</h1>
+              <h1 class="mb-4 text-xl font-bold text-gray-700"><%= t('categories') %></h1>
                 <%= render 'layouts/categories' %>
             </div>
           </div>
