@@ -1,16 +1,21 @@
-<div id="<%= dom_id article %>" class="max-w-4xl px-10 py-6 bg-white rounded-lg shadow-md mb-6">
-  <div class="flex justify-between items-center">
-    <span class="font-light text-gray-600"><%= article.updated_at.strftime('%Y-%m-%d') %></span>
-    <%= link_to article.category.name, article.category, class: 'px-2 py-1 bg-gray-600 text-gray-100 font-bold rounded hover:bg-gray-500' %>
-  </div>
-  <div class="mt-2 max-h-40 overflow-hidden">
-    <a class="text-2xl text-gray-700 font-bold hover:underline" href="/articles/<%= article.id %>"><%= article.title %></a>
-    <div class="mt-2 text-gray-600"><%= raw markdown.render article.content %>...</div>
-  </div>
-  <div class="flex justify-between items-center mt-4">
-    <%= link_to t('read_more'), article, class: 'text-blue-500 hover:underline' %>
-  </div>
-  <div class="flex justify-between items-center mt-4">
-    <%= link_to t('delete'), article, class: 'text-blue-500 hover:underline', data: { "turbo-method": :delete }  %>
+<div class="mb-6">
+  <div id="<%= dom_id article %>" class="max-w-4xl ">
+    <div class="mb-2 py-6 px-10 shadow-md post-card rounded-lg">
+      <div class="flex justify-between items-center">
+        <span class="font-light text-gray-600"><%= article.updated_at.strftime('%Y-%m-%d') %></span>
+        <%= link_to article.category.name, article.category, class: 'px-2 py-1 bg-gray-600 text-gray-100 font-bold rounded hover:bg-gray-500' %>
+      </div>
+      <div class="mt-2 max-h-40 overflow-hidden">
+        <div class="mt-2 text-gray-600"><%= raw markdown.render article.content %>...</div>
+      </div>
+      <% if verified? %>
+        <div class="flex justify-between items-center mt-4">
+          <%= link_to t('delete'), article, class: 'text-blue-500 hover:underline', data: { "turbo-method": :delete }  %>
+        </div>
+      <% end %>
+    </div>
+    <div class="text-center">
+        <a class="hover:underline" href="/articles/<%= article.id %>"><%= article.title %></a>
+    </div>
   </div>
 </div>

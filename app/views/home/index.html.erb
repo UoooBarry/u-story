@@ -1,11 +1,12 @@
-<div class="flex items-center justify-between">
-  <h1 class="text-xl font-bold text-gray-700 md:text-2xl"><%= t("post") %></h1>
+<div class="logo-container">
+  <%= image_tag 'pixel_heart.png', class: 'big-logo' %>
 </div>
-
-<div class="mt-6">
-  <%= turbo_frame_tag "page_handler" %>
-  <div id="articles">
-    <%= render @articles %>
-  </div>
-  <%= render "home/pager", pagy: @pagy %>
+<div class="post-card text-center hello-card rounded-lg">
+  我们已经相遇了<%= days_distances %>天，现在我们在一起。
 </div>
+<div class="home-title">
+  关于
+</div>
+<p class="home-article">
+  对不起，这里还没有文案🥳 🥳
+</p>

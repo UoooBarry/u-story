@@ -15,7 +15,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="font-roboto bg-gray-100">
+  <body class="font-roboto">
     <% flash.each do |color, msg| %>
       <div class="text-<%= color %>-700 bg-<%= color %>-100 text-sm flex p-3 lg" role="alert">
         <%= msg %>
@@ -23,8 +23,8 @@
     <% end %>
     <div>
       <%= render 'layouts/nav' %>
-      <main class="px-6 py-8">
-        <div class="flex justify-between container mx-auto">
+      <main class="px-6 py-8 mt-5">
+        <div class="flex justify-between container mx-auto mt-2" style="margin-top: 6rem;">
           <div class="w-full lg:w-8/12">
             <%= yield %>
           </div>

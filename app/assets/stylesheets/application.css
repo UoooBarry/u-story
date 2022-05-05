@@ -33,3 +33,61 @@
 .post-content {
   white-space: pre-line;
 }
+
+body {
+  background-color: #eee4d6;
+}
+
+.nav-bg {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: #E2E8F0;
+  backdrop-filter: blur(10px);
+  position: fixed;
+  width: 100vw;
+}
+
+.post-card {
+  background-color: #f6f1ec;
+}
+
+.cate-card {
+  background-color: #f6f1ec;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.logo-container {
+  margin: auto;
+  margin-top: -20px;
+  margin-bottom: 40px;
+  width: 280px;
+}
+
+.big-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hello-card {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.home-title {
+  font-size: 20px;
+  line-height: 1.33;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-color: #525252;
+  text-decoration-thickness: 4px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.home-article {
+  overflow-wrap: break-word;
+}

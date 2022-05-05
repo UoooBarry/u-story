@@ -5,7 +5,7 @@
     <!--Title-->
     <div class="font-sans">
       <div id="show-block">
-        <p class="text-base md:text-sm text-blue-500 font-bold">&lt; <a href="/" class="text-base md:text-sm text-blue-500 font-bold no-underline hover:underline"><%= t('back_to_blog') %></a></p>
+        <p class="text-base md:text-sm text-blue-500 font-bold">&lt; <a href="/articles" class="text-base md:text-sm text-blue-500 font-bold no-underline hover:underline"><%= t('back_to_blog') %></a></p>
         <h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl"><%= @article.title %></h1>
         <br>
         <p class="inline  text-sm md:text-base font-normal text-gray-600">Published <%= @article.created_at.strftime('%Y-%m-%d') %></p>

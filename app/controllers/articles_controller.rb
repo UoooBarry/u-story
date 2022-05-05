@@ -3,6 +3,10 @@ require 'redcarpet/compat'
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[edit update show destroy]
 
+  def index
+    @pagy, @articles = pagy(Article.all.includes(:category).order(created_at: :desc), items: 5)
+  end
+
   def new
     @article = Article.new
   end

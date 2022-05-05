@@ -1,0 +1,11 @@
+<div class="flex items-center justify-between">
+  <h1 class="text-xl font-bold text-gray-700 md:text-2xl"><%= t("post") %></h1>
+</div>
+
+<div class="mt-6">
+  <%= turbo_frame_tag "page_handler" %>
+  <div id="articles">
+    <%= render @articles %>
+  </div>
+  <%= render "home/pager", pagy: @pagy %>
+</div>
