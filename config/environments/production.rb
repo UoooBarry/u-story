@@ -91,7 +91,7 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  config.hosts << 'weijunxuan.com'
+  config.hosts.clear
 
   config.force_ssl = true
 
