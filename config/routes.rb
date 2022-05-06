@@ -4,4 +4,10 @@ Rails.application.routes.draw do
   resources :session, only: [:show]
   resources :categories
   resources :articles
+  resources :letter, only: [:index] do
+    collection do
+      get :render_letter
+      post :render_letter
+    end
+  end
 end

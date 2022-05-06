@@ -1,0 +1,168 @@
+<div id='countdown'>
+  <h1 class="text-center counter-text">Inventation</h1>
+  <div class="countdown-container">
+      <div class="countdown-el days-c">
+          <p class="big-text" id="days">0</p>
+          <span class='counter-text'>DAYS</span>
+      </div>
+      <div class="countdown-el hours-c">
+          <p class="big-text" id="hours">0</p>
+          <span class='counter-text'>HOURS</span>
+      </div>
+      <div class="countdown-el mins-c">
+          <p class="big-text" id="mins">0</p>
+          <span class='counter-text'>MINS</span>
+      </div>
+      <div class="countdown-el seconds-c">
+          <p class="big-text" id="seconds">0</p>
+          <span class='counter-text'>SECONDS</span>
+      </div>
+  </div>
+  <div class="text-center">
+    <%= image_tag 'wine.jpeg', class: 'wine' %>
+    <p>欢迎我的小狮子 🦁🦁 参加一年一度的520晚宴!</p>
+    <p>当天晚上,</p>
+    <p>将会由主业女仆人妻</p>
+    <p>兼职<b>"Chief"</b>的花花为您烹饪</p>
+    <p>希望能为您带来一个难忘的晚上 🍻🍻</p>
+    <br />
+    <br />
+    <p class="sub-title text-left">您将品尝到以下菜肴</p>
+
+  <div class="dish-container">
+      <%= image_tag "salad.jpeg", class: 'dish' %>
+      <div>
+        <p class="">头盘</p>
+        <p>千岛酱蔬菜沙拉</p>
+        <p class='en'>Green Salad With Homemade Thousand Island Dressing</p>
+      </div>
+  </div>
+  <div class="dish-container">
+    <%= image_tag "Scallops.webp", class: 'dish' %>
+    <div>
+      <p class="">副菜</p>
+      <p>蒜香黄油煎扇贝</p>
+      <p class='en'>Lemon Garlic Butter Scallops</p>
+    </div>
+  </div>
+  <div class="dish-container">
+    <%= image_tag "sirloin.jpeg", class: 'dish' %>
+    <div>
+      <p class="">主菜</p>
+      <p>低温慢煮西冷牛排</p>
+      <p class='en'>Sous vide Sirloin Steak</p>
+    </div>
+  </div>
+
+  <div class="text-center counter-text sign-text">
+      Sign: __  
+      <canvas class="drawing" id="sign"></canvas>
+  </div>
+
+</div>
+
+<style>
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+  margin-left: 10px;
+}
+
+.counter-text {
+  color: #eae2b7;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+  color: rgb(240, 229, 229);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: flex-start !important;
+  margin: 0;
+  font-family: 'Open Sans'
+}
+
+p {
+  font-size: 2rem;
+}
+
+.sign-text {
+  font-size: 2.5rem;
+}
+
+.sub-title {
+  font-size: 3rem;
+}
+
+.countdown-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.big-text {
+  font-weight: bold;
+  font-size: 6rem;
+  line-height: 1;
+  margin: 1rem 2rem;
+  color: #eae2b7;
+}
+
+.countdown-el {
+    text-align: center;
+}
+
+.countdown-el span {
+    font-size: 1.3rem;
+}
+
+.wine {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.dish {
+  width: 40vw;
+  height: 40vw;
+  margin-right: 10px;
+}
+
+p.en {
+  color: #bfbdc1;
+  margin-left: 20px;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.dish-container {
+  border: 1px solid white;
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+  border-width: 3px 3px 5px 5px;
+  border-radius:4% 95% 6% 95%/95% 4% 92% 5%;
+  transform: rotate(-1deg);
+  margin-bottom: 30px;
+}
+
+.dish-container:nth-child(2n) {
+  transform: rotate(-2deg);
+}
+
+.drawing {
+  border: 1px solid white;
+  width: 100vw;
+}
+</style>
