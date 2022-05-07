@@ -20,6 +20,7 @@ module UStory
     # config.eager_load_paths << Rails.root.join("extras")
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
     config.i18n.default_locale = :zh_cn
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
     # Permitted locales available for the application
     I18n.available_locales = [:en, :zh_cn]
   end

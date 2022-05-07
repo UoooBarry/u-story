@@ -19,6 +19,23 @@
   <div class="shadow"></div>
   </div>
 </div>
+<div id="newEnvlope">
+  <div class="container">  
+      <div class="hearts">
+      <div class="one"></div>
+      <div class="two"></div>
+      <div class="three"></div>
+      <div class="four"></div>
+      <div class="five"></div>
+    </div>
+  <div class="valentines">
+    <div class="envelope-two"></div>
+    <div class="front"></div>
+  </div>
+  <div class="shadow"></div>
+  </div>
+  <img id="test" />
+</div>
 
 
 <script>
@@ -42,7 +59,24 @@
           canvas.freeDrawingBrush.width = 5;
           canvas.freeDrawingBrush.color = "white";
           canvas.setWidth(1000);
-          canvas.setHeight(500);
+          canvas.setHeight(200);
+
+          document.querySelector('.message-btn').addEventListener('click', (e) => {
+           const base64image = document.getElementById('sign').toDataURL("image/png").replace("image/png", "image/octet-stream");
+           fetch('/sign_images', {
+             method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+              },
+              body: JSON.stringify({ sign_image: { src: base64image } })
+           }).then((res) => { console.log(res) })
+
+            document.querySelector('#countdown').style.display = 'none';
+            document.querySelector('#newEnvlope').style.display = 'block';
+            document.querySelector('body').style.backgroundColor = '#fae1dd';
+            clearInterval(x);
+          })
       });
 
       // Set the date we're counting down to
@@ -92,6 +126,19 @@
 </script>
 
 <style>
+@font-face {
+  font-family: 'pinying';
+  font-style: normal;
+  font-weight: 400;
+  src: url(<%= asset_path 'pinying.ttf' %>) format('truetype');
+}
+
+#newEnvlope{
+  display: none;
+  margin-top: 40vh;
+}
+
+
 body {
   display: flex;
   justify-content: center;
@@ -99,6 +146,7 @@ body {
   height: 100vh;
   background-color: #fae1dd;
   transition: background-color 1000ms linear;
+  font-family: 'pinying';
 }
 
 .container {
@@ -123,6 +171,13 @@ body {
 
 
 .envelope {
+  position: relative;
+  width: 300px;
+  height:200px;
+  background-color: #f08080; 
+}
+
+.envelope-two {
   position: relative;
   width: 300px;
   height:200px;

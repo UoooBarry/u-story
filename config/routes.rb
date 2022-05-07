@@ -10,4 +10,5 @@ Rails.application.routes.draw do
       post :render_letter
     end
   end
+  resources :sign_images, only: [:create]
 end
