@@ -4,7 +4,9 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: %i[edit update show destroy]
 
   def index
-    @pagy, @articles = pagy(Article.all.includes(:category).order(created_at: :desc), items: 5)
+    @articles = Article.all.includes(:category).order(created_at: :desc)
+    @articles = @articles.where(category_id: params[:category_id]) if params[:category_id].present?
+    @pagy, @articles = pagy(@articles, items: 5)
   end
 
   def new
